@@ -13,10 +13,11 @@ public class StateManager {
       OfferStateType.DRAFT, new DraftState(),
       OfferStateType.PROPOSED, new ProposedState(),
       OfferStateType.APPROVED, new ApprovedState(),
-      OfferStateType.APPROVED_LOCKED, new ApprovedLockedState(),
+      OfferStateType.APPROVED_LOCKED, new ApprovedAndLockedState(),
       OfferStateType.LIVE, new LiveState(),
       OfferStateType.DEACTIVATED, new DeactivatedState(),
-      OfferStateType.EXPIRED, new ExpiredState()
+      OfferStateType.EXPIRED, new ExpiredState(),
+      OfferStateType.DELETE ,new DeletedState()
   );
 
   public static OfferState getState(OfferStateType type) {

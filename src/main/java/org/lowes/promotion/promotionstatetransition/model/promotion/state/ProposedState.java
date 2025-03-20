@@ -7,6 +7,7 @@ public class ProposedState implements OfferState {
 
   @Override
   public void enterState(Offer offer) {
+    offer.setActive(true);
     System.out.println("Offer is now in Proposed state.");
   }
 

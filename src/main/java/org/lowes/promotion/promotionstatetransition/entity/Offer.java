@@ -8,17 +8,27 @@ import java.time.LocalDate;
 
 public class Offer {
 
-  private OfferStateType currentState;
+  private OfferStateType currentState = OfferStateType.DRAFT;
   private LocalDate startDate;
   private LocalDate endDate;
   private LocalDate promotionDeadline;
+  private boolean active;
 
-  public Offer(LocalDate startDate, LocalDate endDate, LocalDate promotionDeadline) {
+  public boolean isActive() {
+    return active;
+  }
+
+  public void setActive(boolean active) {
+    this.active = active;
+  }
+
+  public Offer(LocalDate startDate, LocalDate endDate,
+      LocalDate promotionDeadline, boolean active) {
     this.startDate = startDate;
     this.endDate = endDate;
     this.promotionDeadline = promotionDeadline;
+    this.active = active;
     System.out.println("Offer is now in Draft state.");
-    this.currentState = OfferStateType.DRAFT;
   }
 
   public OfferStateType getCurrentState() {

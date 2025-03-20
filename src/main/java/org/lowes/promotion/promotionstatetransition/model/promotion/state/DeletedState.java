@@ -7,6 +7,7 @@ public class DeletedState implements OfferState {
 
   @Override
   public void enterState(Offer offer) {
+    offer.setActive(false);
     System.out.println("Delete state");
   }
 

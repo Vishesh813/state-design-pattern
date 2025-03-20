@@ -10,8 +10,10 @@ public class LiveState implements OfferState {
 
   @Override
   public void enterState(Offer offer) {
+    offer.setActive(true);
     System.out.println("Offer is now in Live state.");
     if (!LocalDate.now().isBefore(offer.getEndDate())) {
+      offer.setActive(false);
       offer.changeState(OfferStateType.EXPIRED);
     }
   }

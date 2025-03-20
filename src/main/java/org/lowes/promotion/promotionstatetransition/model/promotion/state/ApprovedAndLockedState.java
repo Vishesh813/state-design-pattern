@@ -6,7 +6,7 @@ import org.lowes.promotion.promotionstatetransition.model.OfferState;
 
 import java.time.LocalDate;
 
-public class ApprovedLockedState implements OfferState {
+public class ApprovedAndLockedState implements OfferState {
 
   @Override
   public void enterState(Offer offer) {
@@ -15,6 +15,7 @@ public class ApprovedLockedState implements OfferState {
     if (LocalDate.now().isEqual(offer.getStartDate())) {
       offer.changeState(OfferStateType.LIVE);
     }
+    offer.setActive(true);
   }
 
 }

@@ -7,6 +7,7 @@ public class DeactivatedState implements OfferState {
 
   @Override
   public void enterState(Offer offer) {
+    offer.setActive(false);
     System.out.println("Offer is now in Deactivated state.");
   }
 }

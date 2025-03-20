@@ -19,10 +19,12 @@ public class PromotionStateTransitionApplication implements CommandLineRunner {
   public void run(String... args) throws Exception {
     // Creating an offer with start date = today and end date = tomorrow
     Offer offer = new Offer(LocalDate.now(), LocalDate.now().plusDays(1),
-        LocalDate.now().plusDays(5));
+        LocalDate.now().plusDays(5),false);
 
     // ✅ Move to Proposed
     offer.changeState(OfferStateType.PROPOSED);
+
+    //offer.changeState(OfferStateType.DELETE);
 
     // ✅ Move to Approved
     offer.changeState(OfferStateType.APPROVED);
@@ -41,6 +43,6 @@ public class PromotionStateTransitionApplication implements CommandLineRunner {
     offer.changeState(OfferStateType.LIVE);
 
     // ✅ Try to edit (should fail since it's Live)
-    System.out.println("Is offer editable? " + offer.isEditable());
+    System.out.println("Is offer editable? " + offer.isEditable() + " is active ?" + offer.isActive());
   }
 }
