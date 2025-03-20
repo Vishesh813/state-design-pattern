@@ -6,9 +6,9 @@ import org.lowes.promotion.promotionstatetransition.model.OfferState;
 
 import java.util.Map;
 
-import java.util.Set;
 
 public class StateManager {
+
   private static final Map<OfferStateType, OfferState> stateInstances = Map.of(
       OfferStateType.DRAFT, new DraftState(),
       OfferStateType.PROPOSED, new ProposedState(),
@@ -20,7 +20,7 @@ public class StateManager {
   );
 
   public static OfferState getState(OfferStateType type) {
-    if (stateInstances.get(type) == null){
+    if (stateInstances.get(type) == null) {
       throw new InvalidStateTransitionException("No state found for type " + type);
     }
     return stateInstances.get(type);

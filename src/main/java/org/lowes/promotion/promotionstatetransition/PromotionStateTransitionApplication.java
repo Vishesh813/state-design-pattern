@@ -2,8 +2,6 @@ package org.lowes.promotion.promotionstatetransition;
 
 import org.lowes.promotion.promotionstatetransition.entity.Offer;
 import org.lowes.promotion.promotionstatetransition.enums.OfferStateType;
-import org.lowes.promotion.promotionstatetransition.model.promotion.state.DeactivatedState;
-import org.lowes.promotion.promotionstatetransition.model.promotion.state.LiveState;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,7 +18,8 @@ public class PromotionStateTransitionApplication implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
     // Creating an offer with start date = today and end date = tomorrow
-    Offer offer = new Offer(LocalDate.now(), LocalDate.now().plusDays(1), LocalDate.now().plusDays(5));
+    Offer offer = new Offer(LocalDate.now(), LocalDate.now().plusDays(1),
+        LocalDate.now().plusDays(5));
 
     // ✅ Move to Proposed
     offer.changeState(OfferStateType.PROPOSED);

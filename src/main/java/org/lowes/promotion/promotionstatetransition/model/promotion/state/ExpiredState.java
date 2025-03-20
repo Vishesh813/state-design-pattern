@@ -10,34 +10,4 @@ public class ExpiredState implements OfferState {
 
   }
 
-  @Override
-  public void approve(Offer offer) {
-
-  }
-
-  @Override
-  public void propose(Offer offer) {
-
-  }
-
-  @Override
-  public void cancel(Offer offer) {
-
-  }
-
-  @Override
-  public void expire(Offer offer) {
-
-  }
-
-  @Override
-  public void deactivate(Offer offer) {
-
-  }
-
-  @Override
-  public void delete(Offer offer) {
-
-  }
-
 }

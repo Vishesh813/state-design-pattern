@@ -40,12 +40,12 @@ public class Offer {
 
   public void changeState(OfferStateType newState) {
     if (!this.currentState.canTransitionTo(newState)) {
-      throw new InvalidStateTransitionException("Invalid transition: " + this.currentState + " → " + newState);
+      throw new InvalidStateTransitionException(
+          "Invalid transition: " + this.currentState + " → " + newState);
     }
     this.currentState = newState;
     StateManager.getState(newState).enterState(this);
   }
-
 
 
   public boolean isEditable() {

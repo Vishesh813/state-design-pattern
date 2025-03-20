@@ -5,8 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import java.util.*;
-
 public enum OfferStateType {
   DRAFT,
   PROPOSED,
@@ -24,7 +22,7 @@ public enum OfferStateType {
     allowedTransitions.put(PROPOSED, Set.of(APPROVED, DRAFT));
     allowedTransitions.put(APPROVED, Set.of(APPROVED_LOCKED, LIVE));
     allowedTransitions.put(APPROVED_LOCKED, Set.of(LIVE));
-    allowedTransitions.put(LIVE, Set.of(DEACTIVATED, EXPIRED,LIVE));
+    allowedTransitions.put(LIVE, Set.of(DEACTIVATED, EXPIRED, LIVE));
     allowedTransitions.put(DEACTIVATED, Set.of(LIVE));
     allowedTransitions.put(EXPIRED, Set.of()); // No transitions allowed
   }
