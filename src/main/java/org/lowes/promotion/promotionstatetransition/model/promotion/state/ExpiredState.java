@@ -8,7 +8,7 @@ public class ExpiredState implements OfferState {
   @Override
   public void enterState(Offer offer) {
     offer.setActive(false);
-    System.out.println("Offer is in expired.");
+    System.out.println("Offer got expired Expired.");
   }
 
 }
