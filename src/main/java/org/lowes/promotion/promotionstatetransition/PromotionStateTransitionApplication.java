@@ -16,7 +16,7 @@ public class PromotionStateTransitionApplication implements CommandLineRunner {
   }
 
   @Override
-  public void run(String... args) throws Exception {
+  public void run(String... args) {
     LocalDate startDate = LocalDate.now();
     LocalDate endDate = startDate.plusDays(1);
 

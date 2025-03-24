@@ -24,7 +24,11 @@
       <artifactId>spring-boot-starter-web-services</artifactId>
       <groupId>org.springframework.boot</groupId>
     </dependency>
-
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <optional>true</optional>
+    </dependency>
     <dependency>
       <artifactId>h2</artifactId>
       <groupId>com.h2database</groupId>
