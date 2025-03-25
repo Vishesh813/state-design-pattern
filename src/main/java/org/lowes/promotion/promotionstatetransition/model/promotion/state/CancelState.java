@@ -7,12 +7,8 @@ public class CancelState implements OfferState {
 
   @Override
   public void enterState(Offer offer) {
-    offer.setActive(true);
+    offer.setActive(false);
     System.out.println("Offer is now in Cancel state.");
   }
 
-  @Override
-  public boolean isEditable(){
-   return true;
-  }
 }

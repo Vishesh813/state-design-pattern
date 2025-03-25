@@ -2,7 +2,6 @@ package org.lowes.promotion.promotionstatetransition.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.lowes.promotion.promotionstatetransition.enums.OfferStateType;
@@ -20,15 +19,12 @@ public class Offer {
   private LocalDate startDate;
   @Setter
   private LocalDate endDate;
-  private LocalDate promotionDeadline;
   private boolean active;
 
 
-  public Offer(LocalDate startDate, LocalDate endDate,
-      LocalDate promotionDeadline, boolean active) {
+  public Offer(LocalDate startDate, LocalDate endDate, boolean active) {
     this.startDate = startDate;
     this.endDate = endDate;
-    this.promotionDeadline = promotionDeadline;
     this.active = active;
     System.out.println("Offer is now in Draft state.");
   }

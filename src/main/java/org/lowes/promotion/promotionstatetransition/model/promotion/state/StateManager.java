@@ -17,7 +17,7 @@ public class StateManager {
       OfferStateType.LIVE, new LiveState(),
       OfferStateType.DEACTIVATED, new DeactivatedState(),
       OfferStateType.EXPIRED, new ExpiredState(),
-      OfferStateType.DELETE ,new DeletedState()
+      OfferStateType.DELETED, new DeletedState()
   );
 
   public static OfferState getState(OfferStateType type) {

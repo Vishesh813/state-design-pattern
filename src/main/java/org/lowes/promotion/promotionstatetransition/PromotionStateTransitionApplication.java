@@ -17,24 +17,22 @@ public class PromotionStateTransitionApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) {
-    LocalDate startDate = LocalDate.now();
-    LocalDate endDate = startDate.plusDays(1);
-
-    Offer offer = new Offer(startDate, endDate, startDate.plusDays(5),false);
+    LocalDate startDate = LocalDate.now().plusDays(1);
+    LocalDate endDate = startDate.plusDays(2);
+    Offer offer = new Offer(startDate, endDate, false);
 
     offer.changeState(OfferStateType.PROPOSED);
-
-    //offer.changeState(OfferStateType.DELETE);
     offer.changeState(OfferStateType.APPROVED);
     offer.changeState(OfferStateType.APPROVED_LOCKED);
 
-    //   Check auto-expiration
+    // Check auto-expiration
     offer.setEndDate(endDate.minusDays(4));
     offer.changeState(OfferStateType.LIVE);
     offer.changeState(OfferStateType.DEACTIVATED);
+    offer.changeState(OfferStateType.LIVE);
 
     //   Try reactivating (should work before end date)
-    offer.changeState(OfferStateType.LIVE);
+    //offer.changeState(OfferStateType.EXPIRED);
 
     //   Try to edit (should fail since it's Live)
     System.out.println("Is offer editable? " + offer.isEditable() + " is active ? " + offer.isActive());
