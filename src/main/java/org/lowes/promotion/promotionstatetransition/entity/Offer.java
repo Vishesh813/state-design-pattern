@@ -3,6 +3,7 @@ package org.lowes.promotion.promotionstatetransition.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.lowes.promotion.promotionstatetransition.enums.OfferStateType;
 import org.lowes.promotion.promotionstatetransition.exception.OfferInvalidStateTransitionException;
 import org.lowes.promotion.promotionstatetransition.model.promotion.state.StateManager;
@@ -12,6 +13,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Slf4j
 public class Offer {
 
   private OfferStateType currentState = OfferStateType.DRAFT;
@@ -24,7 +26,7 @@ public class Offer {
     this.startDate = startDate;
     this.endDate = endDate;
     this.active = active;
-    System.out.println("Offer is now in Draft state.");
+    log.info("Offer is now in Draft state.");
   }
 
 
