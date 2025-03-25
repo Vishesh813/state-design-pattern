@@ -1,5 +1,6 @@
 package org.lowes.promotion.promotionstatetransition;
 
+import lombok.extern.slf4j.Slf4j;
 import org.lowes.promotion.promotionstatetransition.entity.Offer;
 import org.lowes.promotion.promotionstatetransition.enums.OfferStateType;
 import org.springframework.boot.CommandLineRunner;
@@ -9,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.time.LocalDate;
 
 @SpringBootApplication
+@Slf4j
 public class PromotionStateTransitionApplication implements CommandLineRunner {
 
   public static void main(String[] args) {
@@ -35,7 +37,7 @@ public class PromotionStateTransitionApplication implements CommandLineRunner {
     //offer.changeState(OfferStateType.EXPIRED);
 
     //   Try to edit (should fail since it's Live)
-    System.out.println("Is offer editable? " + offer.isEditable() + " is active ? " + offer.isActive());
+    log.info("Is offer editable? {} is active ? {}", offer.isEditable(), offer.isActive());
     System.exit(0);
   }
 }
