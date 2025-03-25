@@ -33,10 +33,10 @@ public class PromotionStateTransitionApplication implements CommandLineRunner {
     offer.changeState(OfferStateType.DEACTIVATED);
     offer.changeState(OfferStateType.LIVE);
 
-    //   Try reactivating (should work before end date)
+    // Try reactivating (should work before end date)
     //offer.changeState(OfferStateType.EXPIRED);
 
-    //   Try to edit (should fail since it's Live)
+    // Try to edit (should fail since it's Live)
     log.info("Is offer editable? {} is active ? {}", offer.isEditable(), offer.isActive());
     System.exit(0);
   }

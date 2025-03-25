@@ -2,7 +2,7 @@ package org.lowes.promotion.promotionstatetransition.model.promotion.state;
 
 import org.lowes.promotion.promotionstatetransition.entity.Offer;
 import org.lowes.promotion.promotionstatetransition.enums.OfferStateType;
-import org.lowes.promotion.promotionstatetransition.exception.InvalidStateTransitionException;
+import org.lowes.promotion.promotionstatetransition.exception.OfferInvalidStateTransitionException;
 import org.lowes.promotion.promotionstatetransition.model.OfferState;
 
 import java.time.LocalDate;
@@ -16,7 +16,8 @@ public class ExpiredState implements OfferState {
     boolean isPromotionExpired = currentDate.isAfter(offer.getEndDate());
     boolean isLivePromotion = currentState.equals(OfferStateType.LIVE);
     if (isPromotionExpired && isLivePromotion) {
-      throw new InvalidStateTransitionException("Invalid state transition from LIVE to EXPIRED");
+      throw new OfferInvalidStateTransitionException(
+          "Invalid state transition from LIVE to EXPIRED");
     }
     offer.setActive(false);
     System.out.println("Offer got expired Expired.");

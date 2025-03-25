@@ -1,7 +1,7 @@
 package org.lowes.promotion.promotionstatetransition.model.promotion.state;
 
 import org.lowes.promotion.promotionstatetransition.enums.OfferStateType;
-import org.lowes.promotion.promotionstatetransition.exception.InvalidStateTransitionException;
+import org.lowes.promotion.promotionstatetransition.exception.OfferInvalidStateTransitionException;
 import org.lowes.promotion.promotionstatetransition.model.OfferState;
 
 import java.util.Map;
@@ -22,7 +22,7 @@ public class StateManager {
 
   public static OfferState getState(OfferStateType type) {
     if (stateInstances.get(type) == null) {
-      throw new InvalidStateTransitionException("No state found for type " + type);
+      throw new OfferInvalidStateTransitionException("No state found for type " + type);
     }
     return stateInstances.get(type);
   }

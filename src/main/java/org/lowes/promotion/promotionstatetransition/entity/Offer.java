@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.lowes.promotion.promotionstatetransition.enums.OfferStateType;
-import org.lowes.promotion.promotionstatetransition.exception.InvalidStateTransitionException;
+import org.lowes.promotion.promotionstatetransition.exception.OfferInvalidStateTransitionException;
 import org.lowes.promotion.promotionstatetransition.model.promotion.state.StateManager;
 
 import java.time.LocalDate;
@@ -30,7 +30,7 @@ public class Offer {
 
   public void changeState(OfferStateType newState) {
     if (!this.currentState.canTransitionTo(newState)) {
-      throw new InvalidStateTransitionException(
+      throw new OfferInvalidStateTransitionException(
           "Invalid state transition: " + this.currentState + " → " + newState);
     }
     this.currentState = newState;
