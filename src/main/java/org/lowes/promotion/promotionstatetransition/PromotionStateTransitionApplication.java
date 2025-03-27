@@ -11,7 +11,8 @@ import java.time.LocalDate;
 
 @SpringBootApplication
 @Slf4j
-public class PromotionStateTransitionApplication implements CommandLineRunner {
+public class PromotionStateTransitionApplication implements
+    CommandLineRunner {
 
   public static void main(String[] args) {
     SpringApplication.run(PromotionStateTransitionApplication.class, args);

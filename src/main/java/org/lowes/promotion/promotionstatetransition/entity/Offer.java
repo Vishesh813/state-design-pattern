@@ -16,7 +16,7 @@ import java.time.LocalDate;
 @Slf4j
 public class Offer {
 
-  private OfferStateType currentState = OfferStateType.DRAFT;
+  private OfferStateType status = OfferStateType.DRAFT;
   private LocalDate startDate;
   private LocalDate endDate;
   private boolean active;
@@ -31,17 +31,17 @@ public class Offer {
 
 
   public void changeState(OfferStateType newState) {
-    if (!this.currentState.canTransitionTo(newState)) {
+    if (!this.status.canTransitionTo(newState)) {
       throw new OfferInvalidStateTransitionException(
-          "Invalid state transition: " + this.currentState + " → " + newState);
+          "Invalid state transition: " + this.status + " → " + newState);
     }
-    this.currentState = newState;
-    StateManager.getState(newState).enterState(this);
+    this.status = newState;
+    StateManager.getState(newState).changeState(this);
   }
 
 
   public boolean isEditable() {
-    return StateManager.getState(currentState).isEditable();
+    return StateManager.getState(this.status).isEditable();
   }
 
 }

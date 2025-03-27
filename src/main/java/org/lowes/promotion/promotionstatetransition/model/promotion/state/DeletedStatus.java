@@ -2,18 +2,19 @@ package org.lowes.promotion.promotionstatetransition.model.promotion.state;
 
 import lombok.extern.slf4j.Slf4j;
 import org.lowes.promotion.promotionstatetransition.entity.Offer;
-import org.lowes.promotion.promotionstatetransition.model.OfferState;
+import org.lowes.promotion.promotionstatetransition.model.OfferStatus;
 
 @Slf4j
-public class DraftState implements OfferState {
+public class DeletedStatus implements OfferStatus {
 
-  public void enterState(Offer offer) {
+  @Override
+  public void changeState(Offer offer) {
     offer.setActive(false);
-    log.info("Offer is now in Draft state.");
+    log.info("Offer deleted");
   }
 
   @Override
   public boolean isEditable() {
-    return true;
+    return OfferStatus.super.isEditable();
   }
 }
