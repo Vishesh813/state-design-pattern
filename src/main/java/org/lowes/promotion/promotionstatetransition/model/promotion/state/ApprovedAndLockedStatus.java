@@ -2,7 +2,7 @@ package org.lowes.promotion.promotionstatetransition.model.promotion.state;
 
 import lombok.extern.slf4j.Slf4j;
 import org.lowes.promotion.promotionstatetransition.entity.Offer;
-import org.lowes.promotion.promotionstatetransition.enums.OfferStateType;
+import org.lowes.promotion.promotionstatetransition.enums.OfferStatusType;
 import org.lowes.promotion.promotionstatetransition.model.OfferStatus;
 
 import java.time.LocalDate;
@@ -11,11 +11,11 @@ import java.time.LocalDate;
 public class ApprovedAndLockedStatus implements OfferStatus {
 
   @Override
-  public void changeState(Offer offer) {
+  public void changeStateTo(Offer offer) {
     log.info("Offer is now in Approved Locked state.");
 
     if (LocalDate.now().isEqual(offer.getStartDate())) {
-      offer.changeState(OfferStateType.LIVE);
+      offer.changeStateTo(OfferStatusType.LIVE);
     }
     offer.setActive(true);
   }

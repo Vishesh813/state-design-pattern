@@ -4,7 +4,7 @@ import org.lowes.promotion.promotionstatetransition.entity.Offer;
 
 public interface OfferStatus {
 
-  void changeState(Offer offer);
+  void changeStateTo(Offer offer);
 
   default boolean isEditable() {
     return false;

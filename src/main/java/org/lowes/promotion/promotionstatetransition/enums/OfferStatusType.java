@@ -4,7 +4,7 @@ import org.lowes.promotion.promotionstatetransition.util.Constants;
 
 import java.util.Collections;
 
-public enum OfferStateType {
+public enum OfferStatusType {
   DRAFT,
   PROPOSED,
   APPROVED,
@@ -16,7 +16,7 @@ public enum OfferStateType {
   EXPIRED;
 
 
-  public boolean canTransitionTo(OfferStateType newState) {
+  public boolean canTransitionTo(OfferStatusType newState) {
     return Constants.allowedTransitions.getOrDefault(this, Collections.emptySet())
         .contains(newState);
   }

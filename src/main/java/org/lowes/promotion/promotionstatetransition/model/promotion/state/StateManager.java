@@ -1,6 +1,6 @@
 package org.lowes.promotion.promotionstatetransition.model.promotion.state;
 
-import org.lowes.promotion.promotionstatetransition.enums.OfferStateType;
+import org.lowes.promotion.promotionstatetransition.enums.OfferStatusType;
 import org.lowes.promotion.promotionstatetransition.exception.OfferInvalidStateTransitionException;
 import org.lowes.promotion.promotionstatetransition.model.OfferStatus;
 
@@ -9,22 +9,22 @@ import java.util.Map;
 
 public class StateManager {
 
-  private static final Map<OfferStateType, OfferStatus> stateInstances = Map.of(
-      OfferStateType.DRAFT, new DraftStatus(),
-      OfferStateType.PROPOSED, new ProposedStatus(),
-      OfferStateType.APPROVED, new ApprovedStatus(),
-      OfferStateType.APPROVED_LOCKED, new ApprovedAndLockedStatus(),
-      OfferStateType.LIVE, new LiveStatus(),
-      OfferStateType.DEACTIVATED, new DeactivatedStatus(),
-      OfferStateType.EXPIRED, new ExpiredStatus(),
-      OfferStateType.DELETED, new DeletedStatus()
+  private static final Map<OfferStatusType, OfferStatus> statusInstances = Map.of(
+      OfferStatusType.DRAFT, new DraftStatus(),
+      OfferStatusType.PROPOSED, new ProposedStatus(),
+      OfferStatusType.APPROVED, new ApprovedStatus(),
+      OfferStatusType.APPROVED_LOCKED, new ApprovedAndLockedStatus(),
+      OfferStatusType.LIVE, new LiveStatus(),
+      OfferStatusType.DEACTIVATED, new DeactivatedStatus(),
+      OfferStatusType.EXPIRED, new ExpiredStatus(),
+      OfferStatusType.DELETED, new DeletedStatus()
   );
 
-  public static OfferStatus getState(OfferStateType type) {
-    if (stateInstances.get(type) == null) {
+  public static OfferStatus getStatus(OfferStatusType type) {
+    if (statusInstances.get(type) == null) {
       throw new OfferInvalidStateTransitionException("No state found for type " + type);
     }
-    return stateInstances.get(type);
+    return statusInstances.get(type);
   }
 }
 

@@ -2,7 +2,7 @@ package org.lowes.promotion.promotionstatetransition;
 
 import lombok.extern.slf4j.Slf4j;
 import org.lowes.promotion.promotionstatetransition.entity.Offer;
-import org.lowes.promotion.promotionstatetransition.enums.OfferStateType;
+import org.lowes.promotion.promotionstatetransition.enums.OfferStatusType;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,15 +24,15 @@ public class PromotionStateTransitionApplication implements
     LocalDate endDate = startDate.plusDays(2);
     Offer offer = new Offer(startDate, endDate, false);
 
-    offer.changeState(OfferStateType.PROPOSED);
-    offer.changeState(OfferStateType.APPROVED);
-    offer.changeState(OfferStateType.APPROVED_LOCKED);
+    offer.changeStateTo(OfferStatusType.PROPOSED);
+    offer.changeStateTo(OfferStatusType.APPROVED);
+    offer.changeStateTo(OfferStatusType.APPROVED_LOCKED);
 
     // Check auto-expiration
     offer.setEndDate(endDate.minusDays(4));
-    offer.changeState(OfferStateType.LIVE);
-    offer.changeState(OfferStateType.DEACTIVATED);
-    offer.changeState(OfferStateType.LIVE);
+    offer.changeStateTo(OfferStatusType.LIVE);
+    offer.changeStateTo(OfferStatusType.DEACTIVATED);
+    offer.changeStateTo(OfferStatusType.LIVE);
 
     // Try reactivating (should work before end date)
     //offer.changeState(OfferStateType.EXPIRED);

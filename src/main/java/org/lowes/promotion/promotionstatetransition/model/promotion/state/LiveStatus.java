@@ -2,7 +2,7 @@ package org.lowes.promotion.promotionstatetransition.model.promotion.state;
 
 import lombok.extern.slf4j.Slf4j;
 import org.lowes.promotion.promotionstatetransition.entity.Offer;
-import org.lowes.promotion.promotionstatetransition.enums.OfferStateType;
+import org.lowes.promotion.promotionstatetransition.enums.OfferStatusType;
 import org.lowes.promotion.promotionstatetransition.model.OfferStatus;
 
 import java.time.LocalDate;
@@ -11,13 +11,13 @@ import java.time.LocalDate;
 public class LiveStatus implements OfferStatus {
 
   @Override
-  public void changeState(Offer offer) {
+  public void changeStateTo(Offer offer) {
     LocalDate currentDate = LocalDate.now();
     // System.out.println("currentDate "+ currentDate + " end date " + offer.getEndDate());
     boolean isPromotionExpired = currentDate.isAfter(offer.getEndDate());
     if (isPromotionExpired) {
       offer.setActive(false);
-      offer.changeState(OfferStateType.EXPIRED);
+      offer.changeStateTo(OfferStatusType.EXPIRED);
       return;
     }
     offer.setActive(true);

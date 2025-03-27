@@ -7,7 +7,7 @@ import org.lowes.promotion.promotionstatetransition.model.OfferStatus;
 @Slf4j
 public class DraftStatus implements OfferStatus {
 
-  public void changeState(Offer offer) {
+  public void changeStateTo(Offer offer) {
     offer.setActive(false);
     log.info("Offer is now in Draft state.");
   }

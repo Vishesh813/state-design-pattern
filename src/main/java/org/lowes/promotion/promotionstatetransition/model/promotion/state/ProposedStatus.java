@@ -8,7 +8,7 @@ import org.lowes.promotion.promotionstatetransition.model.OfferStatus;
 public class ProposedStatus implements OfferStatus {
 
   @Override
-  public void changeState(Offer offer) {
+  public void changeStateTo(Offer offer) {
     offer.setActive(true);
     log.info("Offer is now in Proposed state.");
   }

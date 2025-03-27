@@ -8,7 +8,7 @@ import org.lowes.promotion.promotionstatetransition.model.OfferStatus;
 public class DeactivatedStatus implements OfferStatus {
 
   @Override
-  public void changeState(Offer offer) {
+  public void changeStateTo(Offer offer) {
     offer.setActive(false);
     log.info("Offer is now in Deactivated state.");
   }
